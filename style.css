@@ -90,7 +90,7 @@ button:active {
 }
 
 #row5 button:first-child {
-    flex-grow: 1;
+    flex-grow: 0.95;
 }
 
 .operator {
