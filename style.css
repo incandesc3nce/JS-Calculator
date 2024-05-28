@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 2px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    min-height:100%;
+}
+body {
+    height:100vh;
+}
+
+
+.flex {
+    display: flex;
+}
+.column {
+    flex-direction: column;
+}
+.center {
+    justify-content: center;
+    align-items: center;
+}
+.center-main {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.grow {
+    flex-grow: 1;
+}
+.space {
+    justify-content: space-between;
+}
+
+#calculator {
+    width: 250px;
+    padding: 10px;
+    padding-top: 30px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+.field {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 2.7em;
+    color: white;
+    background-color: rgb(75, 75, 75);
+    border-radius: 10px;
+}
+p {
+    margin-left: auto;
+    text-align: right;
+}
+
+.center-text {
+    text-align: center;
+}
+
+button {
+    width: 50px;
+    height: 61px;
+    padding: 15px;
+    font-size: xx-large;
+    color: white;
+    background-color: rgb(77, 77, 77);
+    border: 0px;
+    border-radius: 10px;
+}
+
+.text {
+    padding: 0px;
+}
+#row1 button:first-child {
+    font-size: x-large;
+}
+
+#row5 button:first-child {
+    flex-grow: 1;
+}
+
+.operator {
+    background-color: rgb(224, 146, 0);
+}
+.misc {
+    background-color: rgb(126, 125, 125);
+}
