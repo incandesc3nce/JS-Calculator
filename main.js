@@ -17,12 +17,16 @@ function calculate(a, oper, b) {
     switch (oper) {
         case '+':
             result = add(a, b);
+            break;
         case '-':
             result = subtract(a, b);
+            break;
         case 'x':
             result = multiply(a, b);
+            break;
         case '/':
             result = divide(a, b);
+            break;
     }
     return result;
 }
@@ -42,6 +46,10 @@ function updateDisplay(value) {
 }
 
 let displayValue = '0';
+let prevValue = 0;
+let currValue = 0;
+let oper = '';
+let isDoingOperation = false;
 
 // populate display with digits
 const seven = document.querySelector('#seven');
@@ -107,6 +115,11 @@ const clearBtn = document.querySelector('#clear');
 
 clearBtn.addEventListener('click', () => {
     displayValue = '0';
+    prevValue = 0;
+    currValue = 0;
+    oper = '';
+    isDoingOperation = false;
+
     updateDisplay(displayValue);
 });
 
@@ -141,4 +154,58 @@ const float = document.querySelector('#float');
 float.addEventListener('click', () => {
     if (!displayValue.includes('.')) displayValue += '.';
     updateDisplay(displayValue);
+});
+
+// operations
+
+const addBtn = document.querySelector('#add')
+const subBtn = document.querySelector('#subtract');
+const multBtn = document.querySelector('#multiply');
+const divBtn = document.querySelector('#divide');
+const equalBtn = document.querySelector('#equal');
+
+
+const checkOperationStatus = (doingOperation) => {
+    if (isDoingOperation) {
+        currValue = parseFloat(displayValue);
+        prevValue = calculate(prevValue, oper, currValue);
+    } else {
+        prevValue = parseFloat(displayValue);
+    }
+};
+
+const startOperation = (operation) => {
+    checkOperationStatus(isDoingOperation);
+    oper = operation;
+    
+    isDoingOperation = true;
+
+    displayValue = '0';
+    updateDisplay(displayValue);
+};
+
+
+addBtn.addEventListener('click', () => {
+    startOperation('+');
+});
+
+subBtn.addEventListener('click', () => {
+    startOperation('-');
+});
+
+multBtn.addEventListener('click', () => {
+    startOperation('x');
+});
+
+divBtn.addEventListener('click', () => {
+    startOperation('/');
+});
+
+equalBtn.addEventListener('click', () => {
+   currValue = parseFloat(displayValue);
+   displayValue = calculate(prevValue, oper, currValue);
+   updateDisplay(displayValue);
+   
+   prevValue = 0; currValue = 0;
+   isDoingOperation = false;
 });
