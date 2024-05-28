@@ -134,3 +134,11 @@ percent.addEventListener('click', () => {
     displayValue = result;
     updateDisplay(displayValue);
 });
+
+//floating point
+const float = document.querySelector('#float');
+
+float.addEventListener('click', () => {
+    if (!displayValue.includes('.')) displayValue += '.';
+    updateDisplay(displayValue);
+});
