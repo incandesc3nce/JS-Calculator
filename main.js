@@ -204,6 +204,7 @@ divBtn.addEventListener('click', () => {
 equalBtn.addEventListener('click', () => {
    currValue = parseFloat(displayValue);
    displayValue = calculate(prevValue, oper, currValue);
+   displayValue = displayValue.toString().length > 8 ? displayValue.toFixed(8) : displayValue;
    updateDisplay(displayValue);
    
    prevValue = 0; currValue = 0;
