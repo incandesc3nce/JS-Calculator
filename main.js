@@ -26,8 +26,7 @@ function calculate(a, oper, b) {
             break;
         case '/':
             if (b === 0) {
-                displayValue = 'srlsy?';
-                updateDisplay(displayValue);
+                result = 'srsly?'
                 break;
             }
             result = divide(a, b);
