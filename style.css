@@ -77,6 +77,10 @@ button {
 button:hover {
     opacity: 0.75;
 }
+button:active {
+    transform: scale(0.96);
+    opacity: 0.5;
+}
 
 .text {
     padding: 0px;
