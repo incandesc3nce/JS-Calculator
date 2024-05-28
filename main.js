@@ -25,6 +25,11 @@ function calculate(a, oper, b) {
             result = multiply(a, b);
             break;
         case '/':
+            if (b === 0) {
+                displayValue = 'srlsy?';
+                updateDisplay(displayValue);
+                break;
+            }
             result = divide(a, b);
             break;
     }
@@ -166,7 +171,7 @@ const equalBtn = document.querySelector('#equal');
 
 
 const checkOperationStatus = (doingOperation) => {
-    if (isDoingOperation) {
+    if (doingOperation) {
         currValue = parseFloat(displayValue);
         prevValue = calculate(prevValue, oper, currValue);
     } else {
