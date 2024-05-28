@@ -13,7 +13,7 @@ function divide(a, b) {
 
 
 function calculate(a, oper, b) {
-    let result;
+    let result = '0';
     switch (oper) {
         case '+':
             result = add(a, b);
