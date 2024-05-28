@@ -35,10 +35,6 @@ function calculate(a, oper, b) {
     return result;
 }
 
-function percentage(a) {
-    return a / 100;
-}
-
 function addDigit(digit, value) {
     if (value === '0' || (value === '0' && digit === '0')) return digit;
     if (value.length === 8) return value;
@@ -142,15 +138,6 @@ negBtn.addEventListener('click', () => {
     updateDisplay(displayValue);
 });
 
-//percentage
-const percent = document.querySelector('#percent');
-
-percent.addEventListener('click', () => {
-    let result = percentage(parseFloat(displayValue));
-    if (result.toString().length > 8) result = result.toFixed(7);
-    displayValue = result;
-    updateDisplay(displayValue);
-});
 
 //floating point
 const float = document.querySelector('#float');
@@ -213,4 +200,19 @@ equalBtn.addEventListener('click', () => {
    
    prevValue = 0; currValue = 0;
    isDoingOperation = false;
+});
+
+// backspace feature
+
+const backspace = document.querySelector('#back');
+
+backspace.addEventListener('click', () => {
+    if (displayValue.toString().length === 1) {
+        displayValue = '0';
+        updateDisplay(displayValue);
+    }
+    if (displayValue.length > 1) {
+        displayValue = displayValue.slice(0, displayValue.length-1);
+        updateDisplay(displayValue);
+    }
 });
