@@ -1,9 +1,9 @@
-import { add } from './operations/add.js';
-import { subtract } from './operations/subtract.js';
-import { multiply } from './operations/multiply.js';
-import { divide } from './operations/divide.js';
+import { add } from './add.js';
+import { subtract } from './subtract.js';
+import { multiply } from './multiply.js';
+import { divide } from './divide.js';
 
-function calculate(a, oper, b) {
+export function calculate(a, oper, b) {
     let result;
     switch (oper) {
         case '+':
@@ -18,6 +18,6 @@ function calculate(a, oper, b) {
     return result;
 }
 
-function percentage(a) {
+export function percentage(a) {
     return a / 100;
 }
